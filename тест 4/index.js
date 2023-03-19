@@ -55,33 +55,38 @@ const findSolutionFunction = (i, props) => {
 		props.remainder = props.maxNumber - props.carentNumber;
 	}
 	else if (props.newArray) {
-		props.maxNumber = props.remainder;
-		props.carentNumber = props.newArray[i];
-		props.remainder = props.maxNumber - props.carentNumber
+		if (props.arrayForSecondLoop && i > 0) {
+			props.maxNumber = props.maxNumber;
+			props.carentNumber = props.arrayForSecondLoop[i];
+			props.remainder = props.maxNumber - props.carentNumber
+		}
+		else {
+			props.maxNumber = props.remainder;
+			props.carentNumber = props.newArray[i];
+			props.remainder = props.maxNumber - props.carentNumber
+		}
 	}
+
+	console.log(props);
 
 
 
-	if (!props.newArray) {
-		props.newArray = filterMyArray(i, props)
-	}
-	else if (props.newArray) {
-		props.newArray = filterMyArray(i, props)
-	}
+	props.newArray = filterMyArray(i, props)
+
+
 	console.log(props.newArray);
+
+
 	if (props.newArray.length === 0) return false;
-	else if (props.newArray === true) return true
+	else if (props.newArray === true) return true;
+
 	props.foundNumber = findMyRemainder(i, props)
 	if (props.foundNumber) return props.foundNumber;
 	//else if (remainder) return remainder
 
 	//findRemainder(remainder, arr, maxNumber, theLastElement)
 
-	for (let j = 0; j < props.newArray.length; j++) {
-		console.log("second loop " + j);
-		findSolutionFunction(j, props)
-		if (props.foundNumber || props.newArray === true) return true
-	}
+
 	//const newRemaindner = remainder - newArray[0];
 	//console.log(newRemaindner);
 	//findRemainder(newRemaindner, reverseArray, maxNumber, newArray, theLastElement)
@@ -97,19 +102,32 @@ function ArrayAdditionI(arr) {
 	//debugger
 	const props = {
 		arr: arr.sort(function (a, b) { return a - b }),
-		maxNumber: arr.pop(),
+		mainMaxNumber: arr.pop(),
+		maxNumber: null,
 		reverseArray: [...arr].reverse(),
 		newArray: null,
+		arrayForSecondLoop: null,
 		remainder: null,
 		foundNumber: null,
 		carentNumber: null
 	}
 
+	props.maxNumber = props.mainMaxNumber
+
 
 	for (let i = 0; i < props.reverseArray.length; i++) {
+		//debugger
 		console.log(i);
 		foundNumber = findSolutionFunction(i, props);
+		props.arrayForSecondLoop = props.newArray;
 		if (props.foundNumber || props.newArray === true) return true
+		else {
+			for (let j = 0; j < props.arrayForSecondLoop.length; j++) {
+				console.log("second loop " + j);
+				findSolutionFunction(j, props)
+				if (props.foundNumber || props.newArray === true) return true
+			}
+		}
 	}
 
 	console.log('true');
