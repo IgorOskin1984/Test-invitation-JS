@@ -1,8 +1,8 @@
-import { solutionPrint } from './my_SplutionPrint.js'
+import { solutionPrint } from './my_SolutionPrint.js'
 
 
 export const filterMyArray = (arrReverseArray, remainder, i) => {
-	debugger
+	//debugger
 
 	const filterArray = (arrayItem, index) => {
 		if (remainder >= arrayItem && index !== i) {
@@ -14,6 +14,9 @@ export const filterMyArray = (arrReverseArray, remainder, i) => {
 			return true
 		}
 	}
+	arrReverseArray = arrReverseArray.filter(filterArray)
+	if (arrReverseArray.length) return arrReverseArray
+	else return false
 
 
 
@@ -31,5 +34,7 @@ export const filterMyArray = (arrReverseArray, remainder, i) => {
 	//	solutionPrint(i, props)
 	//	return true;
 	//}
-	return arrReverseArray.filter(filterArray)
+
+
+	//return arrReverseArray.filter(filterArray)
 }

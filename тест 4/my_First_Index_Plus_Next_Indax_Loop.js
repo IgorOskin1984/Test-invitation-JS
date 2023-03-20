@@ -13,7 +13,8 @@ export const firstIndexPlusNextIndaxLoop = (j, arr, remainder, props) => {
 			if (j > i) {
 				sum = arr[i] + arr[j]
 				if (sum === remainder) {
-					props.foundNumber = sum
+					props.foundNumbersArray.push(arr[i], arr[j])
+					props.foundNumber = sum;
 					props.solutionIsFound = true
 					return true
 				}
@@ -21,7 +22,7 @@ export const firstIndexPlusNextIndaxLoop = (j, arr, remainder, props) => {
 		}
 
 	}
-	props.foundNumber = sum
+	//props.foundNumber = sum
 
 
 	return props.solutionIsFound;

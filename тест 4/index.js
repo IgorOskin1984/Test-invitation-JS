@@ -1,15 +1,15 @@
 import { randomArray } from './random-Array.js'
 import { findSolutionFunction } from './my_SolutionFunction.js'
-import { solutionPrint } from './my_SplutionPrint.js'
+import { solutionPrint } from './my_SolutionPrint.js'
 import { bubleSort } from './my_bubleSort.js'
 import { firstIndexPlusNextIndaxLoop } from './my_first_Index_Plus_Next_Indax_Loop.js'
 
-randomArray()
+//randomArray()
 
 function ArrayChallenge(props) {
 	//debugger
 	console.log('last container');
-	solutionPrint()
+	solutionPrint(props)
 	return props.solutionIsFound
 }
 
@@ -24,6 +24,7 @@ function main_Solution(arr) {
 		arrayForSecondLoop: null,
 		remainder: null,
 		foundNumber: null,
+		foundNumbersArray: [],
 		carentNumber: null,
 		solutionIsFound: false
 	}
@@ -33,20 +34,20 @@ function main_Solution(arr) {
 
 	for (let i = 0; i < props.arrReverseArray.length; i++) {
 		//debugger
-		//props.arrayForSecondLoop = props.arrNewArray;
-		//console.log(i);
-
 		findSolutionFunction(i, props);
 
 		if (props.solutionIsFound) return props
-
-		for (let j = 0; j < props.arrFilteredNewArray.length; j++) {
-			//debugger
-			bubleSort(j, props.arrFilteredNewArray, props.remainder, props)
-			if (props.solutionIsFound) return props
-			firstIndexPlusNextIndaxLoop(j, props.arrFilteredNewArray, props.remainder, props)
-			if (props.solutionIsFound) return props
+		else if (props.arrFilteredNewArray) {
+			for (let j = 0; j < props.arrFilteredNewArray.length; j++) {
+				console.log(`inner loop  ${j}`);
+				//debugger
+				bubleSort(j, props.arrFilteredNewArray, props.remainder, props)
+				if (props.solutionIsFound) return props
+				firstIndexPlusNextIndaxLoop(j, props.arrFilteredNewArray, props.remainder, props)
+				if (props.solutionIsFound) return props
+			}
 		}
+
 
 		//else {
 		//	for (let j = 0; j < props.arrayForSecondLoop.length; j++) {
@@ -57,7 +58,7 @@ function main_Solution(arr) {
 		//}
 	}
 
-	console.log('true');
+	console.log('solution not found');
 	return props
 
 }
