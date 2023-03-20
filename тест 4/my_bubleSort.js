@@ -1,4 +1,4 @@
-export const bubleSort = (arr, remainder, props) => {
+export const bubleSort = (i, arr, remainder, props) => {
 
 	const additionBreake = (sum, remainder, i) => {
 		for (let j = 0; j < arr.length; j++) {
@@ -7,21 +7,20 @@ export const bubleSort = (arr, remainder, props) => {
 				if (sum > remainder) return false
 				else if (sum === remainder) {
 					props.foundNumber = sum
-
 					return true
 				}
 			}
 		}
-	}
-	debugger
-	for (let i = 0; i < arr.length; i++) {
-		let sum = 0;
-		sum = arr[i];
-
-		props.solutionIsFound = additionBreake(sum, remainder, i)
-
+		return false
 	}
 
-	return console.log(props.solutionIsFound);
+	let sum = 0;
+	sum = arr[i];
+
+	props.solutionIsFound = additionBreake(sum, remainder, i)
+
+	//console.log(sum);
+
+	return props.solutionIsFound;
 
 }

@@ -2,6 +2,7 @@ import { solutionPrint } from './my_SplutionPrint.js'
 
 
 export const filterMyArray = (arrReverseArray, remainder, i) => {
+	debugger
 
 	const filterArray = (arrayItem, index) => {
 		if (remainder >= arrayItem && index !== i) {

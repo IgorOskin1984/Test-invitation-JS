@@ -2,6 +2,7 @@ import { randomArray } from './random-Array.js'
 import { findSolutionFunction } from './my_SolutionFunction.js'
 import { solutionPrint } from './my_SplutionPrint.js'
 import { bubleSort } from './my_bubleSort.js'
+import { firstIndexPlusNextIndaxLoop } from './my_first_Index_Plus_Next_Indax_Loop.js'
 
 randomArray()
 
@@ -32,15 +33,19 @@ function main_Solution(arr) {
 
 	for (let i = 0; i < props.arrReverseArray.length; i++) {
 		//debugger
-		console.log(i);
+		//props.arrayForSecondLoop = props.arrNewArray;
+		//console.log(i);
 
 		findSolutionFunction(i, props);
 
-		//props.arrayForSecondLoop = props.arrNewArray;
-
 		if (props.solutionIsFound) return props
+
 		for (let j = 0; j < props.arrFilteredNewArray.length; j++) {
-			bubleSort(props.arrFilteredNewArray, props.remainder, [props])
+			//debugger
+			bubleSort(j, props.arrFilteredNewArray, props.remainder, props)
+			if (props.solutionIsFound) return props
+			firstIndexPlusNextIndaxLoop(j, props.arrFilteredNewArray, props.remainder, props)
+			if (props.solutionIsFound) return props
 		}
 
 		//else {
