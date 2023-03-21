@@ -6,11 +6,7 @@ export const filterMyArray = (arrReverseArray, remainder, i) => {
 
 	const filterArray = (arrayItem, index) => {
 		if (remainder >= arrayItem && index !== i) {
-			//debugger
-			//console.log(remainder);
-			//console.log(arrayItem);
-			//console.log('carentNumber ' + carentNumber);
-			//console.log(index);
+
 			return true
 		}
 	}

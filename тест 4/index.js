@@ -1,8 +1,6 @@
 import { randomArray } from './random-Array.js'
-import { findSolutionFunction } from './my_SolutionFunction.js'
 import { solutionPrint } from './my_SolutionPrint.js'
-import { bubleSort } from './my_bubleSort.js'
-import { firstIndexPlusNextIndaxLoop } from './my_first_Index_Plus_Next_Indax_Loop.js'
+import { solutionFunction } from './Solution_Function .js'
 
 //randomArray()
 
@@ -25,42 +23,28 @@ function main_Solution(arr) {
 		remainder: null,
 		foundNumber: null,
 		foundNumbersArray: [],
-		carentNumber: null,
+		carentValue: null,
 		solutionIsFound: false
 	}
 
 	//props.maxNumber = props.mainMaxNumber
 
-
 	for (let i = 0; i < props.arrReverseArray.length; i++) {
-		//debugger
-		findSolutionFunction(i, props);
-
 		if (props.solutionIsFound) return props
-		else if (props.arrFilteredNewArray) {
-			for (let j = 0; j < props.arrFilteredNewArray.length; j++) {
-				console.log(`inner loop  ${j}`);
-				//debugger
-				bubleSort(j, props.arrFilteredNewArray, props.remainder, props)
-				if (props.solutionIsFound) return props
-				firstIndexPlusNextIndaxLoop(j, props.arrFilteredNewArray, props.remainder, props)
-				if (props.solutionIsFound) return props
-			}
+		else {
+			props.carentValue = props.arrReverseArray[i]
+			solutionFunction(i, props)
+			props.carentValue = props.arrReverseArray[i] + props.arrReverseArray[i + 1]
+			props.foundNumbersArray = [];
+			props.foundNumbersArray.push(props.arrReverseArray[i], props.arrReverseArray[i + 1])
+			console.log(props.foundNumbersArray);
+			solutionFunction(i, props)
 		}
 
-
-		//else {
-		//	for (let j = 0; j < props.arrayForSecondLoop.length; j++) {
-		//		console.log("second loop " + j);
-		//		console.log(props);
-
-		//	}
-		//}
 	}
 
 	console.log('solution not found');
 	return props
-
 }
 
 

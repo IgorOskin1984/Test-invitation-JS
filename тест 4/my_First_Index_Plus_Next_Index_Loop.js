@@ -1,4 +1,4 @@
-export const firstIndexPlusNextIndaxLoop = (j, arr, remainder, props) => {
+export const firstIndexPlusNextIndexLoop = (j, arr, remainder, props) => {
 	//debugger
 
 	//console.log(j);

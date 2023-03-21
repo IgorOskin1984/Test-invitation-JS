@@ -1,4 +1,4 @@
-export const bubleSort = (i, arr, remainder, props) => {
+export const additionSortFunc = (i, arr, remainder, props) => {
 	//debugger
 	const additionBreake = (sum, remainder, i) => {
 		for (let j = 0; j < arr.length; j++) {
