@@ -30,6 +30,7 @@ function main_Solution(arr) {
 	//props.maxNumber = props.mainMaxNumber
 
 	for (let i = 0; i < props.arrReverseArray.length; i++) {
+		//debugger
 		if (props.solutionIsFound) return props
 		else {
 			props.carentValue = props.arrReverseArray[i]
@@ -43,7 +44,7 @@ function main_Solution(arr) {
 
 	}
 
-	console.log('solution not found');
+	console.warn('solution not found');
 	return props
 }
 

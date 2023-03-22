@@ -11,7 +11,7 @@ export function randomArray() {
 
 	//array.sort((a, b) => a - b)
 	//console.log(array);
-	console.log([0, 5, 8, 9, 16, 22, 22, 23, 41]);
-	return [0, 5, 8, 9, 16, 22, 22, 23, 41]
+	console.log([0, 3, 8, 9, 16, 22, 22, 23, 41]);
+	return [0, 3, 8, 9, 16, 22, 22, 23] // 41
 	//return array;
 }

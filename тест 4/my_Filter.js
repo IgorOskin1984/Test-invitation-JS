@@ -1,7 +1,7 @@
 import { solutionPrint } from './my_SolutionPrint.js'
 
 
-export const filterMyArray = (arrReverseArray, remainder, i) => {
+export const filterMyArray = (arrayForFiltration, remainder, i) => {
 	//debugger
 
 	const filterArray = (arrayItem, index) => {
@@ -10,8 +10,8 @@ export const filterMyArray = (arrReverseArray, remainder, i) => {
 			return true
 		}
 	}
-	arrReverseArray = arrReverseArray.filter(filterArray)
-	if (arrReverseArray.length) return arrReverseArray
+	arrayForFiltration = arrayForFiltration.filter(filterArray)
+	if (arrayForFiltration.length) return arrayForFiltration
 	else return false
 
 
